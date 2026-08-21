@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aura
 
-## Getting Started
+Aura is a premium coming-soon landing page for an AI-powered content operation. It presents a system where four focused agents — Researcher, Writer, Editor, and Publisher — move one idea through a repeatable, human-approved production pipeline.
 
-First, run the development server:
+This repository contains the product showcase, not the future Aura application itself.
+
+## What’s included
+
+- Editorial dark-mode landing-page design, responsive from mobile through desktop
+- Animated “idea → agents → published output” hero pipeline
+- Interactive content-pipeline preview and approval states
+- Research, writing, editing, publishing, and shared-memory product sections
+- Client-side waitlist form with email validation, loading, error, and success states
+- Metadata, JSON-LD software-application schema, `robots.txt`, and sitemap routes
+- Reduced-motion styles and keyboard-accessible controls
+
+## Tech stack
+
+- Next.js 16 with the App Router
+- React 19
+- Tailwind CSS 4
+- Plain React state and CSS animations for the current interactive surface
+
+The project also includes Motion, Lucide, React Hook Form, Zod, and Sonner as installed dependencies for future product work.
+
+## Getting started
+
+Requirements: Node.js 20.9 or later and npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run lint` | Run ESLint. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Serve an existing production build. |
 
-## Learn More
+## Configuration
 
-To learn more about Next.js, take a look at the following resources:
+Set `NEXT_PUBLIC_SITE_URL` to the deployed canonical URL. It is used for the canonical metadata, sitemap, and robots routes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If unset, Aura uses `https://aura.example.com` as a safe placeholder.
 
-## Deploy on Vercel
+## Waitlist integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The current waitlist form intentionally does not persist email addresses or call a remote service. It validates the address in the browser and presents a polished success state. Replace the mock success transition in `app/page.js` with a server action or API call when an email provider is selected.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+```text
+app/
+  globals.css      # Design tokens, layouts, responsive behavior, and motion
+  layout.js        # Global metadata and SoftwareApplication JSON-LD
+  page.js          # Landing-page sections and client-side interactions
+  robots.js        # Robots metadata route
+  sitemap.js       # Sitemap metadata route
+```
+
+## Notes
+
+- Privacy and Terms links are visual placeholders until those routes are added.
+- The visual pipeline is illustrative; it does not represent a live content-processing backend.
