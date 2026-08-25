@@ -37,8 +37,9 @@ export default function OpenGraphImage() {
             background: "#d4ff6b",
             display: "flex",
           }}
-        />{" "}
-        AURA<span style={{ color: "#d4ff6b" }}>/</span>
+        />
+        <span>AURA</span>
+        <span style={{ color: "#d4ff6b" }}>/</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div
@@ -53,6 +54,7 @@ export default function OpenGraphImage() {
         </div>
         <div
           style={{
+            display: "flex",
             fontSize: 74,
             lineHeight: 1,
             letterSpacing: "-5px",
@@ -64,8 +66,7 @@ export default function OpenGraphImage() {
         </div>
       </div>
       <div style={{ display: "flex", color: "#a8aba7", fontSize: 20 }}>
-        Research&nbsp; → &nbsp;Reason&nbsp; → &nbsp;Execute&nbsp; →
-        &nbsp;Review&nbsp; → &nbsp;Output
+        <span>Research → Reason → Execute → Review → Output</span>
       </div>
     </div>,
     size,
