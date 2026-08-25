@@ -1,1 +1,12 @@
-export default function sitemap() { const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aura.example.com"; return [{ url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 }]; }
+import { siteConfig } from "../lib/site";
+
+export default function sitemap() {
+  return [
+    {
+      url: siteConfig.url,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+  ];
+}

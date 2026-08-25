@@ -1,1 +1,15 @@
-export default function robots() { const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aura.example.com"; return { rules: { userAgent: "*", allow: "/" }, sitemap: `${baseUrl}/sitemap.xml` }; }
+import { absoluteUrl } from "../lib/site";
+
+export default function robots() {
+  return {
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/dashboard/"],
+      },
+    ],
+    sitemap: absoluteUrl("/sitemap.xml"),
+    host: absoluteUrl(),
+  };
+}
